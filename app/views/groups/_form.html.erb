@@ -19,6 +19,7 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
+  <%= select_tag(:manager, options_for_select(@managers)) %>
   <div class="actions">
     <%= f.submit %>
   </div>

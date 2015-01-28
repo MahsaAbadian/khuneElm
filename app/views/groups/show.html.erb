@@ -10,6 +10,11 @@
   <%= @group.description %>
 </p>
 
+<p>
+  <strong>Manager:</strong>
+  <%= @group.user.profile.full_name %>
+</p>
+
 <%= link_to 'ایجاد کلاس', new_clazz_path(:group_id => @group.id) %>
 
 <%= link_to 'Edit', edit_group_path(@group) %> |

@@ -15,17 +15,21 @@ class GroupsController < ApplicationController
   # GET /groups/new
   def new
     @group = Group.new
+    manager_role_id = Role.find_by_name("manager").id
+    @managers = User.where(:role_id => manager_role_id).collect {|manager| [manager.profile.full_name, manager.id]}
   end
 
   # GET /groups/1/edit
   def edit
+    manager_role_id = Role.find_by_name("manager").id
+    @managers = User.where(:role_id => manager_role_id).collect {|manager| [manager.profile.full_name, manager.id]}
   end
 
   # POST /groups
   # POST /groups.json
   def create
     @group = Group.new(group_params)
-
+    @group.user_id = params[:manager]
     respond_to do |format|
       if @group.save
         format.html { redirect_to @group, notice: 'Group was successfully created.' }
@@ -69,6 +73,6 @@ class GroupsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def group_params
-      params.require(:group).permit(:name, :description)
+      params.require(:group).permit(:name, :description, :manager)
     end
 end

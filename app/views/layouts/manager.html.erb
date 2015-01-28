@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Mm</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+		<%= link_to 'خروج' , destroy_user_session_path, method: :delete %>
+		<% if current_user.profile.present? %>
+			<%= link_to current_user.profile.full_name , profile_path(current_user.profile)%>
+		<% else %>
+			<%= link_to 'پروفایل جدید' , new_profile_path()%>
+		<% end %>
+		
+		<% current_user.groups.each do |group| %>
+			<%= link_to group.name , group %>
+		<% end %>
+
+
+<%= yield %>
+
+</body>
+</html>

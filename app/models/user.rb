@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
 
   belongs_to :role
   has_one :profile
-  has_many :groups
+  has_many :groups #manager
+  has_many :class_teachers
 
   # attr_accessible :password
 end
