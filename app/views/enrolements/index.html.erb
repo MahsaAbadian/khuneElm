@@ -1,0 +1,27 @@
+<h1>Listing enrolements</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Grade</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @enrolements.each do |enrolement| %>
+      <tr>
+        <td><%= enrolement.grade %></td>
+        <td><%= link_to 'Show', enrolement %></td>
+        <td><%= link_to 'Edit', edit_enrolement_path(enrolement) %></td>
+        <td><%= link_to 'Destroy', enrolement, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Enrolement', new_enrolement_path %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @clazz.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @clazz.description %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @clazz.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @clazz.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_clazz_path(@clazz) %> |
+<%= link_to 'Back', clazzs_path %>

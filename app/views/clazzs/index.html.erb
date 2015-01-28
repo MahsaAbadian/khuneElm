@@ -1,0 +1,33 @@
+<h1>Listing clazzs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start time</th>
+      <th>End time</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @clazzs.each do |clazz| %>
+      <tr>
+        <td><%= clazz.name %></td>
+        <td><%= clazz.description %></td>
+        <td><%= clazz.start_time %></td>
+        <td><%= clazz.end_time %></td>
+        <td><%= link_to 'Show', clazz %></td>
+        <td><%= link_to 'Edit', edit_clazz_path(clazz) %></td>
+        <td><%= link_to 'Destroy', clazz, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Clazz', new_clazz_path %>

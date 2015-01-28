@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @class_session.name %>
+</p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @class_session.date %>
+</p>
+
+<p>
+  <strong>End page:</strong>
+  <%= @class_session.end_page %>
+</p>
+
+<p>
+  <strong>Goal end page:</strong>
+  <%= @class_session.goal_end_page %>
+</p>
+
+<p>
+  <strong>Report:</strong>
+  <%= @class_session.report %>
+</p>
+
+<%= link_to 'Edit', edit_class_session_path(@class_session) %> |
+<%= link_to 'Back', class_sessions_path %>

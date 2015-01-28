@@ -1,0 +1,35 @@
+<h1>Listing class_sessions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Date</th>
+      <th>End page</th>
+      <th>Goal end page</th>
+      <th>Report</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @class_sessions.each do |class_session| %>
+      <tr>
+        <td><%= class_session.name %></td>
+        <td><%= class_session.date %></td>
+        <td><%= class_session.end_page %></td>
+        <td><%= class_session.goal_end_page %></td>
+        <td><%= class_session.report %></td>
+        <td><%= link_to 'Show', class_session %></td>
+        <td><%= link_to 'Edit', edit_class_session_path(class_session) %></td>
+        <td><%= link_to 'Destroy', class_session, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Class session', new_class_session_path %>

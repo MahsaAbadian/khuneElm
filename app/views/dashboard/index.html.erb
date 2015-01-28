@@ -1,0 +1,27 @@
+<h1>پنل ادمین</h1>
+<p></p>
+<%= form_tag('create') do %>
+<div class="field">
+    <%= label_tag :username, 'شناسه کاربری' %><br>
+    <%= text_field_tag :username %>
+</div>
+<div class="field">
+    <%= label_tag :password, 'کلمه عبور' %><br>
+    <%= password_field_tag :password %>
+</div>
+<div class="field">
+    <%= label_tag :password_confirmation, 'تکرار کلمه عبور' %><br>
+    <%= password_field_tag :password_confirmation %>
+</div>
+<div class="field">
+    <%= label_tag :role, 'نقش ها' %><br>
+    <%= select_tag(:role, options_for_select(@roles)) %>
+</div>
+
+
+<% @users.each do |user| %>
+<h3><%= user.email %></h3>
+<% end %>
+
+<%= submit_tag 'ثبت' %>
+<% end %>
